@@ -129,7 +129,7 @@ export default function Hero() {
                                 flexShrink: 0,
                             }}>
                                 <img
-                                    src="/adhen_profil.jpeg"
+                                    src="./adhen_profil.jpeg"
                                     alt="Adhen Firman Firdaus"
                                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
                                 />
