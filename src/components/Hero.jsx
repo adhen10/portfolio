@@ -341,7 +341,7 @@ export default function Hero() {
                                     </svg>
                                     Kontak
                                 </a>
-                                <a href="/adhen_cv.pdf" download style={{
+                                <a href="/Adhen_Firman_CV.pdf" download style={{
                                     flex: 1, padding: '9px',
                                     background: 'transparent', color: 'var(--text-muted)',
                                     borderRadius: 8, fontSize: 12, fontWeight: 500,
