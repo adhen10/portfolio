@@ -115,6 +115,31 @@ export const EXPERIENCE = [
 // ── PROJECTS ──────────────────────────────────────────
 export const PROJECTS = [
     {
+        name: "PT Elkia Jaya Trading - Corporate Landing Page",
+        desc: "Website landing page resmi PT Elkia Jaya Trading yang berfokus pada layanan ekspor-impor, perdagangan internasional, dan penyediaan barang berkualitas tinggi secara global.",
+        longDesc: "Landing page korporat interaktif berbasis Next.js App Router dan TypeScript. Dirancang dengan desain modern dan responsif untuk memperkuat branding perusahaan perdagangan internasional, dilengkapi komponen FAQ, testimoni, dan integrasi WhatsApp Direct Chat.",
+        highlights: [
+            "Membangun antarmuka landing page interaktif dengan fitur penjelas layanan ekspor-impor, keunggulan perusahaan, dan alur kerja bisnis.",
+            "Mengintegrasikan komponen FAQ interaktif, testimoni, serta tombol WhatsApp melayang (floating WA) untuk mempermudah prospek bisnis menghubungi perusahaan.",
+            "Menggunakan Next.js App Router & TypeScript untuk memastikan performa yang cepat, SEO-friendly, dan kode yang terstruktur."
+        ],
+        stack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Lucide React"],
+        type: "Full-Stack / Company Profile",
+        category: "fullstack",
+        year: "2026",
+        featured: true,
+        github: "",
+        demo: "https://elkiajayatrading.vercel.app",
+        slides: [
+            { label: "Hero & Landing Page", color: "#0070F3", image: "/elkiajayatrading/hero.png" },
+            { label: "Jenis Pelayanan", color: "#0F172A", image: "/elkiajayatrading/jenisPelayanan.png" },
+            { label: "Mengapa Memilih Kami", color: "#1E293B", image: "/elkiajayatrading/why.png" },
+            { label: "Alur & Cara Kerja", color: "#334155", image: "/elkiajayatrading/caraKerja.png" },
+            { label: "Review & Testimoni", color: "#25D366", image: "/elkiajayatrading/review.png" },
+            { label: "Footer & Direct Contact", color: "#000000", image: "/elkiajayatrading/footer.png" }
+        ]
+    },
+    {
         name: "Report Sales Batch ETL System",
         desc: "Sistem pengolah & integrasi data otomatis untuk mengonsolidasi 4 file Excel terpisah (Header, Detail, Stock Log, Pesanan) menjadi satu Flat Table terstruktur berbasis DataTables Server-Side.",
         longDesc: "Modul ETL (Extract, Transform, Load) internal untuk PT Gautama Indah Perkasa yang dirancang untuk mengotomasi pengolahan ribuan baris data penjualan & stok batch dari 4 file Excel berbeda. Menggunakan arsitektur Flat Table Denormalized dan AJAX Server-Side Processing sehingga pencarian dan ekspor ribuan data dapat dilakukan serba instan di bawah 1 detik.",

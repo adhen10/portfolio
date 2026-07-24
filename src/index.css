@@ -296,21 +296,7 @@ img {
     grid-template-columns: 1fr;
   }
 }
-.project-card-v2.reverse {
-  direction: rtl;
-}
-.project-card-v2.reverse > * {
-  direction: ltr;
-}
-@media (max-width: 900px) {
-  .project-card-v2,
-  .project-card-v2.reverse {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-/* Project card v2 */
+/* Project card v2 - Layout Utama */
 .project-card-v2 {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -324,19 +310,43 @@ img {
   align-items: stretch;
   position: relative;
 }
+
+/* Membalik urutan kolom tanpa hack 'direction: rtl' */
 .project-card-v2.reverse {
-  direction: rtl;
+  grid-template-columns: 1fr minmax(280px, 1.1fr);
 }
-.project-card-v2.reverse > * {
-  direction: ltr;
+.project-card-v2.reverse > :first-child {
+  order: 2; /* Pindahkan elemen pertama ke kolom kanan */
 }
+
+/* Hover States */
 .project-card-v2:hover {
   border-color: var(--indigo-mid);
-  box-shadow: 0 12px 40px rgba(79,70,229,0.16);
+  box-shadow: 0 12px 40px rgba(79, 70, 229, 0.16);
   transform: translateY(-2px);
 }
+
+/* Tambahkan transition di sini agar zoom gambar tidak patah/kaget */
+.project-card-v2 .project-thumb-img {
+  transition: transform 0.3s ease;
+}
+
 .project-card-v2:hover .project-thumb-img {
   transform: scale(1.05);
+}
+
+/* Media Query Responsive (Wajib ditaruh paling bawah) */
+@media (max-width: 900px) {
+  .project-card-v2,
+  .project-card-v2.reverse {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Reset urutan elemen di tampilan mobile agar kembali normal */
+  .project-card-v2.reverse > :first-child {
+    order: initial;
+  }
 }
 
 .project-cover {
