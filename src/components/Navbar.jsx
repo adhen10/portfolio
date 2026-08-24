@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 
 const links = [
-    { label: 'Skills', href: '#skills' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'How I Work', href: '#howIWork' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Keahlian', href: '#skills' },
+    { label: 'Pengalaman', href: '#experience' },
+    { label: 'Proyek', href: '#projects' },
+    { label: 'Cara Kerja', href: '#howIWork' },
+    { label: 'Kontak', href: '#contact' },
 ]
 
 export default function Navbar({ dark, setDark }) {
