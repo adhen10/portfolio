@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react'
 export default function useInView(options = {}) {
     const ref = useRef(null)
     const [inView, setInView] = useState(false)
+    const threshold = options.threshold ?? 0.1
+    const rootMargin = options.rootMargin ?? '0px 0px -60px 0px'
 
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
@@ -11,13 +13,13 @@ export default function useInView(options = {}) {
                 observer.disconnect() // animasi hanya sekali
             }
         }, {
-            threshold: options.threshold || 0.1,
-            rootMargin: options.rootMargin || '0px 0px -60px 0px',
+            threshold,
+            rootMargin,
         })
 
         if (ref.current) observer.observe(ref.current)
         return () => observer.disconnect()
-    }, [])
+    }, [rootMargin, threshold])
 
     return [ref, inView]
 }
