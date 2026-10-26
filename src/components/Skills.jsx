@@ -9,7 +9,7 @@ export default function Skills() {
     const tools = SKILLS.find(s => s.category === 'Tools & DevOps')?.items || []
     const support = SKILLS.find(s => s.category === 'IT Support')?.items || []
 
-
+    return (
         <section id="skills" className="section" ref={ref}>
 
             <div className={`reveal ${inView ? 'visible' : ''}`}>
