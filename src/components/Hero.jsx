@@ -10,19 +10,22 @@ function CountUp({ target, suffix, label, show, delay, divider }) {
         const steps = 60
         const increment = target / steps
         let current = 0
+        let intervalId
         const timer = setTimeout(() => {
-            const interval = setInterval(() => {
+            intervalId = setInterval(() => {
                 current += increment
                 if (current >= target) {
                     setCount(target)
-                    clearInterval(interval)
+                    clearInterval(intervalId)
                 } else {
                     setCount(Math.floor(current))
                 }
             }, duration / steps)
-            return () => clearInterval(interval)
         }, delay * 1000 + 600)
-        return () => clearTimeout(timer)
+        return () => {
+            clearTimeout(timer)
+            if (intervalId) clearInterval(intervalId)
+        }
     }, [show, target, delay])
 
     return (
