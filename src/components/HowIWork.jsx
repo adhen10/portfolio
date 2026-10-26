@@ -1,4 +1,3 @@
-import { INFO } from "../data/portfolio"
 import useInView from "../hooks/useInView"
 
 const steps = [

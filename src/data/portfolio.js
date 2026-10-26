@@ -129,7 +129,7 @@ export const PROJECTS = [
         year: "2026",
         featured: true,
         github: "",
-        demo: "https://elkiajayatrading.vercel.app",
+        demo: "https://elkiajayatrading.com",
         slides: [
             { label: "Hero & Landing Page", color: "#0070F3", image: "/elkiajayatrading/hero.png" },
             { label: "Jenis Pelayanan", color: "#0F172A", image: "/elkiajayatrading/jenisPelayanan.png" },

@@ -37,7 +37,17 @@ export default function Experience() {
                         <div
                             key={i}
                             className={`reveal ${inView ? 'visible' : ''}`}
+                            role="button"
+                            tabIndex={0}
+                            aria-expanded={isOpen}
+                            aria-label={`${isOpen ? 'Tutup' : 'Buka'} detail pengalaman ${exp.role} di ${exp.company}`}
                             onClick={() => setOpenIndex(isOpen ? null : i)}
+                            onKeyDown={e => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault()
+                                    setOpenIndex(isOpen ? null : i)
+                                }
+                            }}
                             style={{
                                 background: 'var(--surface)',
                                 border: `1px solid ${isOpen ? accent + '60' : 'var(--border)'}`,
