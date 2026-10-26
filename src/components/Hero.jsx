@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { INFO, SKILLS } from '../data/portfolio'
 
- {
+export default function Hero() {
     const [show, setShow] = useState(false)
 
     useEffect(() => {
