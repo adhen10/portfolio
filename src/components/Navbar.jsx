@@ -112,6 +112,10 @@ export default function Navbar({ dark, setDark }) {
                     {/* Hamburger */}
                     <button
                         className="nav-hamburger"
+                        type="button"
+                        aria-label={menuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
+                        aria-expanded={menuOpen}
+                        aria-controls="mobile-navigation"
                         onClick={() => setMenuOpen(!menuOpen)}
                         style={{
                             display: 'none',
@@ -142,7 +146,7 @@ export default function Navbar({ dark, setDark }) {
 
             {/* Mobile Menu */}
             {menuOpen && (
-                <div style={{
+                <div id="mobile-navigation" style={{
                     background: 'var(--surface)',
                     borderTop: '1px solid var(--border)',
                     padding: '12px 0',
