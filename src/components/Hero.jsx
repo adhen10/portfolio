@@ -1,52 +1,7 @@
 import { useState, useEffect } from 'react'
 import { INFO, SKILLS } from '../data/portfolio'
 
-function CountUp({ target, suffix, label, show, delay, divider }) {
-    const [count, setCount] = useState(0)
-
-    useEffect(() => {
-        if (!show) return
-        const duration = 1800
-        const steps = 60
-        const increment = target / steps
-        let current = 0
-        let intervalId
-        const timer = setTimeout(() => {
-            intervalId = setInterval(() => {
-                current += increment
-                if (current >= target) {
-                    setCount(target)
-                    clearInterval(intervalId)
-                } else {
-                    setCount(Math.floor(current))
-                }
-            }, duration / steps)
-        }, delay * 1000 + 600)
-        return () => {
-            clearTimeout(timer)
-            if (intervalId) clearInterval(intervalId)
-        }
-    }, [show, target, delay])
-
-    return (
-        <div style={{
-            textAlign: 'center',
-            padding: '0 12px',
-            borderRight: divider ? '1px solid rgba(255,255,255,0.15)' : 'none',
-            flex: 1,
-        }}>
-            <p style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: 32, fontWeight: 700,
-                color: '#fff', letterSpacing: '-2px', lineHeight: 1,
-                marginBottom: 4,
-            }}>{count}{suffix}</p>
-            <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.5px' }}>{label}</p>
-        </div>
-    )
-}
-
-export default function Hero() {
+ {
     const [show, setShow] = useState(false)
 
     useEffect(() => {
