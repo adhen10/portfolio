@@ -175,12 +175,15 @@ function ProjectModal({ project, pi, slides, setSlides, onClose }) {
     }, [onClose])
 
     useEffect(() => {
+        const previousOverflow = document.body.style.overflow
+        const previouslyFocused = document.activeElement
         const handler = (e) => { if (e.key === 'Escape') handleClose() }
         document.addEventListener('keydown', handler)
         document.body.style.overflow = 'hidden'
         return () => {
             document.removeEventListener('keydown', handler)
-            document.body.style.overflow = ''
+            document.body.style.overflow = previousOverflow
+            if (previouslyFocused instanceof HTMLElement) previouslyFocused.focus()
         }
     }, [handleClose])
 
@@ -189,7 +192,14 @@ function ProjectModal({ project, pi, slides, setSlides, onClose }) {
             className={`modal-overlay${closing ? ' closing' : ''}`}
             onClick={handleClose}
         >
-            <div className="modal-box" onClick={e => e.stopPropagation()}>
+            <div
+                className="modal-box"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="project-modal-title"
+                tabIndex={-1}
+                onClick={e => e.stopPropagation()}
+            >
                 {/* Thumbnail Slider */}
                 <SlideThumb
                     project={project} pi={pi}
@@ -206,7 +216,7 @@ function ProjectModal({ project, pi, slides, setSlides, onClose }) {
                 <div className="modal-header modal-header-rich">
                     <div>
                         <p className="modal-section-label">Project detail</p>
-                        <h3 className="modal-title">{project.name}</h3>
+                        <h3 id="project-modal-title" className="modal-title">{project.name}</h3>
                         <p className="modal-subtitle">{project.desc}</p>
                     </div>
                     <div className="modal-meta-row">
@@ -346,7 +356,12 @@ export default function Projects() {
                             onClick={() => setModal(pi)}
                             role="button"
                             tabIndex={0}
-                            onKeyDown={e => e.key === 'Enter' && setModal(pi)}
+                            onKeyDown={e => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault()
+                                    setModal(pi)
+                                }
+                            }}
                             aria-label={`Buka detail ${project.name}`}
                         >
                             {/* Thumbnail */}
